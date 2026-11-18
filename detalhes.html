@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Pacote | JFK Pacotes Turísticos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="imagens/logo.svg" alt="JFK Viagens"></a>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html#pacotes">Pacotes</a></li>
+                <li><a href="index.html#sobre">Sobre Nós</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="detalhes-container">
+
+        <h1 id="tituloPagina">Detalhes do Pacote</h1>
+
+        <section class="detalhes-pacote" id="conteudoPacote">
+
+            <div class="galeria" id="galeria">
+                <img id="imagemPrincipal" src="" alt="Destino turístico">
+
+                <div class="miniaturas">
+                    <img id="miniatura1" class="miniatura ativa" src="" alt="Imagem 1 do destino">
+                    <img id="miniatura2" class="miniatura" src="" alt="Imagem 2 do destino">
+                </div>
+            </div>
+
+            <div class="informacoes-pacote">
+
+                <h2 id="nomeCidade"></h2>
+
+                <p id="descricao1"></p>
+                <p id="descricao2"></p>
+                <p id="descricao3"></p>
+
+                <div class="preco" id="blocoPreco">
+                    <span>Valor por pessoa:</span>
+                    <strong id="valor"></strong>
+                </div>
+
+                <a href="login.html" id="btnComprar" class="botao-comprar">Comprar Pacote</a>
+                <a href="index.html#pacotes" id="btnVoltar" class="botao-comprar" hidden>Voltar aos pacotes</a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 JFK Pacotes Turísticos - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const pacotes = {
+            NovaYork: {
+                nome: "Nova York",
+                imagem: "imagens/nova-york.jpg",
+                descricao1: "Conheça Nova York, uma das cidades mais famosas e movimentadas do mundo.",
+                descricao2: "O pacote inclui hospedagem, transporte e passeios pelos principais pontos turísticos.",
+                descricao3: "Visite a Times Square, Central Park, Estátua da Liberdade e muitos outros lugares incríveis.",
+                valor: "R$ 4.999,00"
+            },
+            Paris: {
+                nome: "Paris",
+                imagem: "imagens/paris.jpg",
+                descricao1: "Explore Paris, conhecida mundialmente como a cidade da luz e do romance.",
+                descricao2: "Conheça seus monumentos históricos, museus e belas paisagens.",
+                descricao3: "O roteiro inclui Torre Eiffel, Museu do Louvre, Arco do Triunfo e outros pontos turísticos.",
+                valor: "R$ 5.499,00"
+            },
+            Rio: {
+                nome: "Rio de Janeiro",
+                imagem: "imagens/rio-de-janeiro.jpg",
+                descricao1: "Descubra as belezas do Rio de Janeiro e suas famosas praias.",
+                descricao2: "A viagem inclui hospedagem e passeios pelos principais pontos turísticos.",
+                descricao3: "Visite o Cristo Redentor, Pão de Açúcar, Copacabana e Ipanema.",
+                valor: "R$ 2.499,00"
+            },
+            Londres: {
+                nome: "Londres",
+                imagem: "imagens/londres.jpg",
+                descricao1: "Conheça Londres, uma cidade rica em história, cultura e tradição.",
+                descricao2: "Explore seus monumentos históricos e atrações culturais.",
+                descricao3: "Visite o Big Ben, London Eye, Palácio de Buckingham e Tower Bridge.",
+                valor: "R$ 5.799,00"
+            },
+            Toronto: {
+                nome: "Toronto",
+                imagem: "imagens/toronto.jpg",
+                descricao1: "Conheça Toronto, uma das principais cidades do Canadá.",
+                descricao2: "Aproveite uma viagem repleta de cultura, natureza e entretenimento.",
+                descricao3: "Visite a CN Tower, Harbourfront, Royal Ontario Museum e outros locais.",
+                valor: "R$ 5.299,00"
+            },
+            Japao: {
+                nome: "Japão",
+                imagem: "imagens/japao.jpg",
+                descricao1: "Descubra o Japão e sua combinação única entre tradição e tecnologia.",
+                descricao2: "Conheça templos, cidades modernas e paisagens naturais incríveis.",
+                descricao3: "O roteiro inclui Tóquio, Kyoto, templos históricos e experiências culturais.",
+                valor: "R$ 8.999,00"
+            },
+            Roma: {
+                nome: "Roma",
+                imagem: "imagens/roma.jpg",
+                descricao1: "Viaje para Roma e conheça uma das cidades mais importantes da história.",
+                descricao2: "Explore construções antigas, monumentos e obras de arte.",
+                descricao3: "Visite o Coliseu, Vaticano, Fontana di Trevi e Fórum Romano.",
+                valor: "R$ 5.199,00"
+            },
+            Caribe: {
+                nome: "Caribe",
+                imagem: "imagens/caribe.jpg",
+                descricao1: "Relaxe nas belas praias do Caribe e aproveite paisagens paradisíacas.",
+                descricao2: "O pacote oferece hospedagem próxima às praias e diversas atividades.",
+                descricao3: "Desfrute de águas cristalinas, praias de areia branca e momentos de lazer.",
+                valor: "R$ 6.499,00"
+            },
+            India: {
+                nome: "Índia",
+                imagem: "imagens/india.jpg",
+                descricao1: "Conheça a Índia, um país de cultura, história e tradições milenares.",
+                descricao2: "Explore templos, monumentos e cidades históricas.",
+                descricao3: "Visite o Taj Mahal, Nova Délhi, Jaipur e outros destinos.",
+                valor: "R$ 7.499,00"
+            },
+            Chicago: {
+                nome: "Chicago",
+                imagem: "imagens/chicago.jpg",
+                descricao1: "Explore Chicago, uma das maiores cidades dos Estados Unidos.",
+                descricao2: "Conheça sua arquitetura, parques, museus e atrações culturais.",
+                descricao3: "Visite o Millennium Park, Navy Pier, Cloud Gate e outros locais.",
+                valor: "R$ 4.799,00"
+            },
+            Toquio: {
+                nome: "Tóquio",
+                imagem: "imagens/toquio.jpg",
+                descricao1: "Conheça Tóquio, uma das maiores e mais modernas cidades do mundo.",
+                descricao2: "Explore bairros tecnológicos, templos tradicionais e centros comerciais.",
+                descricao3: "Visite Shibuya, Tokyo Tower, Asakusa e diversos pontos turísticos.",
+                valor: "R$ 8.499,00"
+            },
+            Maldivas: {
+                nome: "Maldivas",
+                imagem: "imagens/maldivas.jpg",
+                descricao1: "Desfrute das paradisíacas ilhas Maldivas e suas águas cristalinas.",
+                descricao2: "Aproveite momentos de descanso em praias de areia branca.",
+                descricao3: "O pacote inclui hospedagem e experiências em um dos destinos mais famosos do mundo.",
+                valor: "R$ 9.499,00"
+            }
+        };
+
+        const parametros = new URLSearchParams(window.location.search);
+        const cidade = parametros.get("cidade");
+
+        const tituloPagina = document.getElementById("tituloPagina");
+        const nomeCidade = document.getElementById("nomeCidade");
+        const galeria = document.getElementById("galeria");
+        const imagemPrincipal = document.getElementById("imagemPrincipal");
+        const miniatura1 = document.getElementById("miniatura1");
+        const miniatura2 = document.getElementById("miniatura2");
+        const descricao1 = document.getElementById("descricao1");
+        const descricao2 = document.getElementById("descricao2");
+        const descricao3 = document.getElementById("descricao3");
+        const blocoPreco = document.getElementById("blocoPreco");
+        const valor = document.getElementById("valor");
+        const btnComprar = document.getElementById("btnComprar");
+        const btnVoltar = document.getElementById("btnVoltar");
+
+        const pacote = Object.hasOwn(pacotes, cidade) ? pacotes[cidade] : null;
+
+        function selecionarMiniatura(miniaturaSelecionada, novaSrc) {
+            imagemPrincipal.src = novaSrc;
+            miniatura1.classList.remove("ativa");
+            miniatura2.classList.remove("ativa");
+            miniaturaSelecionada.classList.add("ativa");
+        }
+
+        if (pacote) {
+            document.title = pacote.nome + " | JFK Pacotes Turísticos";
+
+            tituloPagina.textContent = "Pacote " + pacote.nome;
+            nomeCidade.textContent = pacote.nome;
+
+            imagemPrincipal.src = pacote.imagem;
+            imagemPrincipal.alt = "Imagem de " + pacote.nome;
+            miniatura1.src = pacote.imagem;
+            miniatura1.alt = "Imagem 1 de " + pacote.nome;
+
+            if (pacote.imagem2) {
+                miniatura2.src = pacote.imagem2;
+                miniatura2.alt = "Imagem 2 de " + pacote.nome;
+            } else {
+                document.querySelector(".miniaturas").style.display = "none";
+            }
+
+            descricao1.textContent = pacote.descricao1;
+            descricao2.textContent = pacote.descricao2;
+            descricao3.textContent = pacote.descricao3;
+
+            valor.textContent = pacote.valor;
+
+            btnComprar.addEventListener("click", function () {
+                try {
+                    sessionStorage.setItem("pacoteSelecionado", JSON.stringify({
+                        nome: pacote.nome,
+                        valor: pacote.valor
+                    }));
+                } catch (e) { }
+            });
+
+            miniatura1.addEventListener("click", function () {
+                selecionarMiniatura(miniatura1, pacote.imagem);
+            });
+
+            miniatura2.addEventListener("click", function () {
+                if (pacote.imagem2) selecionarMiniatura(miniatura2, pacote.imagem2);
+            });
+
+        } else {
+            tituloPagina.textContent = "Pacote não encontrado";
+            nomeCidade.textContent = "Destino não encontrado";
+            descricao1.textContent = "O pacote selecionado não está disponível ou não existe.";
+            descricao2.textContent = "Navegue pelo nosso menu para encontrar outros destinos incríveis.";
+
+            descricao3.style.display = "none";
+            galeria.style.display = "none";
+            blocoPreco.style.display = "none";
+            btnComprar.style.display = "none";
+            btnVoltar.hidden = false;
+        }
+    </script>
+
+</body>
+
+</html>

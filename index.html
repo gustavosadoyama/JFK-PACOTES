@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JFK Pacotes Turísticos | Agência de Viagens</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <h1><img src="imagens/logo.svg" alt="JFK Viagens"></h1>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="#pacotes">Pacotes</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="carousel">
+            <div class="carousel-container">
+                <div class="slide ativo">
+                    <img src="imagens/nova-york.jpg" alt="Nova York">
+                </div>
+                <div class="slide">
+                    <img src="imagens/paris.jpg" alt="Paris">
+                </div>
+                <div class="slide">
+                    <img src="imagens/rio-de-janeiro.jpg" alt="Rio de Janeiro">
+                </div>
+            </div>
+
+            <button class="seta esquerda" id="btnAnterior" aria-label="Slide anterior">&#10094;</button>
+            <button class="seta direita" id="btnProximo" aria-label="Próximo slide">&#10095;</button>
+        </section>
+
+        <section class="pacotes-container" id="pacotes">
+            <h2>Nossos Pacotes em Destaque</h2>
+
+            <div class="grid-pacotes">
+
+                <div class="card-pacote">
+                    <img src="imagens/nova-york.jpg" alt="Nova York">
+                    <h3>Nova York</h3>
+                    <p>Conheça a cidade que nunca dorme e viva momentos inesquecíveis.</p>
+                    <a href="detalhes.html?cidade=NovaYork">Ver Detalhes</a>
+                </div>
+
+                <div class="card-pacote">
+                    <img src="imagens/paris.jpg" alt="Paris">
+                    <h3>Paris</h3>
+                    <p>Explore a Cidade Luz, com suas paisagens românticas e cultura única.</p>
+                    <a href="detalhes.html?cidade=Paris">Ver Detalhes</a>
+                </div>
+
+                <div class="card-pacote">
+                    <img src="imagens/rio-de-janeiro.jpg" alt="Rio de Janeiro">
+                    <h3>Rio de Janeiro</h3>
+                    <p>Desfrute das praias paradisíacas e das maravilhas naturais do Rio.</p>
+                    <a href="detalhes.html?cidade=Rio">Ver Detalhes</a>
+                </div>
+
+                <div class="card-pacote">
+                    <img src="imagens/londres.jpg" alt="Londres">
+                    <h3>Londres</h3>
+                    <p>Descubra a história, cultura e monumentos icônicos da capital britânica.</p>
+                    <a href="detalhes.html?cidade=Londres">Ver Detalhes</a>
+                </div>
+
+                <div class="card-pacote">
+                    <img src="imagens/toronto.jpg" alt="Toronto">
+                    <h3>Toronto</h3>
+                    <p>Viva uma experiência incrível em uma das cidades mais dinâmicas do Canadá.</p>
+                    <a href="detalhes.html?cidade=Toronto">Ver Detalhes</a>
+                </div>
+
+                <div class="card-pacote">
+                    <img src="imagens/japao.jpg" alt="Japão">
+                    <h3>Japão</h3>
+                    <p>Uma mistura fascinante entre tradição milenar e tecnologia moderna.</p>
+                    <a href="detalhes.html?cidade=Japao">Ver Detalhes</a>
+                </div>
+
+                <div class="card-pacote">
+                    <img src="imagens/roma.jpg" alt="Roma">
+                    <h3>Roma</h3>
+                    <p>Caminhe pela história e visite monumentos lendários do Império Romano.</p>
+                    <a href="detalhes.html?cidade=Roma">Ver Detalhes</a>
+                </div>
+
+                <div class="card-pacote">
+                    <img src="imagens/caribe.jpg" alt="Caribe">
+                    <h3>Caribe</h3>
+                    <p>Relaxe em praias de águas cristalinas e areia branca inesquecíveis.</p>
+                    <a href="detalhes.html?cidade=Caribe">Ver Detalhes</a>
+                </div>
+
+                <div class="card-pacote">
+                    <img src="imagens/india.jpg" alt="Índia">
+                    <h3>Índia</h3>
+                    <p>Conheça a riqueza cultural, cores e aromas de um país fascinante.</p>
+                    <a href="detalhes.html?cidade=India">Ver Detalhes</a>
+                </div>
+
+                <div class="card-pacote">
+                    <img src="imagens/chicago.jpg" alt="Chicago">
+                    <h3>Chicago</h3>
+                    <p>Aprecie a incrível arquitetura e a vibrante cena cultural de Chicago.</p>
+                    <a href="detalhes.html?cidade=Chicago">Ver Detalhes</a>
+                </div>
+
+                <div class="card-pacote">
+                    <img src="imagens/toquio.jpg" alt="Tóquio">
+                    <h3>Tóquio</h3>
+                    <p>Mergulhe no ritmo frenético e encantador da capital japonesa.</p>
+                    <a href="detalhes.html?cidade=Toquio">Ver Detalhes</a>
+                </div>
+
+                <div class="card-pacote">
+                    <img src="imagens/maldivas.jpg" alt="Maldivas">
+                    <h3>Maldivas</h3>
+                    <p>O destino perfeito para relaxar em bangalôs sobre águas turquesa.</p>
+                    <a href="detalhes.html?cidade=Maldivas">Ver Detalhes</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="informacao" id="sobre">
+            <h2>Sobre a JFK Viagens</h2>
+            <p>Somos uma agência de viagens dedicada a proporcionar experiências inesquecíveis pelos melhores destinos
+                do mundo. Oferecemos pacotes completos com hospedagem, transporte e passeios com total segurança e
+                comodidade.</p>
+        </section>
+
+        <section class="informacao" id="contato">
+            <h2>Fale Conosco</h2>
+            <p>Entre em contato pelo e-mail: <strong>contato@jfkviagens.com.br</strong> ou pelo telefone <strong>(11)
+                    99999-9999</strong>.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 JFK Pacotes Turísticos - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const slides = document.querySelectorAll(".slide");
+        const btnAnterior = document.getElementById("btnAnterior");
+        const btnProximo = document.getElementById("btnProximo");
+        let slideAtual = 0;
+
+        function mostrarSlide(indice) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle("ativo", i === indice);
+            });
+        }
+
+        let timer = setInterval(proximo, 5000);
+
+        function proximo() {
+            slideAtual = (slideAtual + 1) % slides.length;
+            mostrarSlide(slideAtual);
+        }
+
+        function anterior() {
+            slideAtual = (slideAtual - 1 + slides.length) % slides.length;
+            mostrarSlide(slideAtual);
+        }
+
+        function reiniciarTimer() {
+            clearInterval(timer);
+            timer = setInterval(proximo, 5000);
+        }
+
+        btnProximo.addEventListener("click", () => { proximo(); reiniciarTimer(); });
+        btnAnterior.addEventListener("click", () => { anterior(); reiniciarTimer(); });
+    </script>
+
+</body>
+
+</html>

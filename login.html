@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | JFK Pacotes Turísticos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="imagens/logo.svg" alt="JFK Viagens"></a>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html#pacotes">Pacotes</a></li>
+                <li><a href="index.html#sobre">Sobre Nós</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="form-container">
+
+        <div class="form-topo">
+            <h1>Formulário de login</h1>
+            <p>Entre na sua conta para finalizar a compra do pacote.</p>
+        </div>
+
+        <form class="formulario" id="formLogin">
+
+            <div class="campo">
+                <label for="login">Login:</label>
+                <input type="text" id="login" name="login" autocomplete="username" required>
+            </div>
+
+            <div class="campo">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" autocomplete="current-password" required>
+            </div>
+
+            <div class="botoes">
+                <button type="submit" class="botao-comprar" id="btnEntrar">Entrar</button>
+                <a href="cadastro.html" class="botao-secundario">Criar conta</a>
+            </div>
+
+            <p class="mensagem" id="mensagem" role="status"></p>
+
+        </form>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 JFK Pacotes Turísticos - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const formLogin = document.getElementById("formLogin");
+        const btnEntrar = document.getElementById("btnEntrar");
+        const mensagem = document.getElementById("mensagem");
+
+        formLogin.addEventListener("submit", function (e) {
+            e.preventDefault();
+            btnEntrar.disabled = true;
+            mensagem.textContent = "Login realizado com sucesso! Redirecionando para o pagamento...";
+            setTimeout(function () {
+                window.location.href = "pagamento.html";
+            }, 2000);
+        });
+    </script>
+
+</body>
+
+</html>

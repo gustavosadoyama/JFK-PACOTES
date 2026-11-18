@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento | JFK Pacotes Turísticos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="imagens/logo.svg" alt="JFK Viagens"></a>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html#pacotes">Pacotes</a></li>
+                <li><a href="index.html#sobre">Sobre Nós</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="form-container">
+
+        <div class="form-topo">
+            <h1>Informações de pagamento</h1>
+            <p>Escolha a forma de pagamento para finalizar a sua compra.</p>
+        </div>
+
+        <div class="resumo" id="resumo" hidden>
+            <h2>Resumo da compra</h2>
+            <p><span>Pacote:</span> <strong id="resumoPacote"></strong></p>
+            <p><span>Valor por pessoa:</span> <strong id="resumoValor"></strong></p>
+        </div>
+
+        <form class="formulario" id="formPagamento">
+
+            <div class="campo">
+                <label for="forma">Forma de pagamento:</label>
+                <select id="forma" name="forma" required>
+                    <option value="cartao" selected>Cartão de crédito</option>
+                    <option value="pix">Pix</option>
+                    <option value="boleto">Boleto bancário</option>
+                </select>
+            </div>
+
+            <div class="bloco-cartao" id="camposCartao">
+
+                <div class="campo">
+                    <label for="nomeCartao">Nome impresso no cartão:</label>
+                    <input type="text" id="nomeCartao" name="nomeCartao" minlength="3" autocomplete="cc-name" required>
+                </div>
+
+                <div class="campo">
+                    <label for="numeroCartao">Número do cartão:</label>
+                    <input type="text" id="numeroCartao" name="numeroCartao" inputmode="numeric"
+                        placeholder="0000 0000 0000 0000" pattern="\d{4}\s?\d{4}\s?\d{4}\s?\d{4}"
+                        title="Digite os 16 números do cartão" autocomplete="cc-number" required>
+                </div>
+
+                <div class="grade-2">
+                    <div class="campo">
+                        <label for="validade">Validade:</label>
+                        <input type="month" id="validade" name="validade" autocomplete="cc-exp" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="cvv">Código de segurança (CVV):</label>
+                        <input type="password" id="cvv" name="cvv" inputmode="numeric" maxlength="4" pattern="\d{3,4}"
+                            title="Digite 3 ou 4 números" autocomplete="cc-csc" required>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="parcelas">Parcelas:</label>
+                    <select id="parcelas" name="parcelas" required>
+                        <option value="1">1x sem juros</option>
+                        <option value="2">2x sem juros</option>
+                        <option value="3">3x sem juros</option>
+                        <option value="4">4x sem juros</option>
+                        <option value="5">5x sem juros</option>
+                        <option value="6">6x sem juros</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <p class="mensagem" id="aviso" hidden></p>
+
+            <div class="botoes">
+                <button type="submit" class="botao-comprar">Finalizar</button>
+                <a href="index.html" class="botao-secundario">Cancelar</a>
+            </div>
+
+        </form>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 JFK Pacotes Turísticos - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const formPagamento = document.getElementById("formPagamento");
+        const forma = document.getElementById("forma");
+        const camposCartao = document.getElementById("camposCartao");
+        const aviso = document.getElementById("aviso");
+        const validade = document.getElementById("validade");
+        const parcelas = document.getElementById("parcelas");
+
+        validade.min = new Date().toISOString().slice(0, 7);
+
+        let pacote = null;
+        try {
+            pacote = JSON.parse(sessionStorage.getItem("pacoteSelecionado"));
+        } catch (e) { }
+
+        if (pacote && pacote.nome) {
+            document.getElementById("resumoPacote").textContent = pacote.nome;
+            document.getElementById("resumoValor").textContent = pacote.valor;
+            document.getElementById("resumo").hidden = false;
+        }
+
+        function atualizarForma() {
+            const cartao = forma.value === "cartao";
+
+            camposCartao.hidden = !cartao;
+            camposCartao.querySelectorAll("input, select").forEach(function (campo) {
+                campo.disabled = !cartao;
+            });
+
+            if (forma.value === "pix") {
+                aviso.textContent = "O código Pix será exibido depois que você finalizar a compra.";
+            } else if (forma.value === "boleto") {
+                aviso.textContent = "O boleto será gerado depois que você finalizar a compra.";
+            }
+            aviso.hidden = cartao;
+        }
+
+        forma.addEventListener("change", atualizarForma);
+        atualizarForma();
+
+        formPagamento.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            try {
+                sessionStorage.setItem("pagamento", JSON.stringify({
+                    forma: forma.value,
+                    parcelas: forma.value === "cartao" ? parcelas.value : null
+                }));
+            } catch (erro) { }
+
+            window.location.href = "finalizacao.html";
+        });
+    </script>
+
+</body>
+
+</html>

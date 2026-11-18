@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | JFK Pacotes Turísticos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="imagens/logo.svg" alt="JFK Viagens"></a>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html#pacotes">Pacotes</a></li>
+                <li><a href="index.html#sobre">Sobre Nós</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="form-container">
+
+        <div class="form-topo">
+            <h1>Cadastro de novo usuário</h1>
+            <p>Preencha os dados abaixo para criar a sua conta.</p>
+        </div>
+
+        <form class="formulario" id="formCadastro">
+
+            <div class="campo">
+                <label for="nome">Nome completo:</label>
+                <input type="text" id="nome" name="nome" minlength="3" autocomplete="name" required>
+            </div>
+
+            <div class="campo">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+
+            <div class="campo">
+                <label for="nascimento">Data de nascimento:</label>
+                <input type="date" id="nascimento" name="nascimento" autocomplete="bday" required>
+            </div>
+
+            <div class="campo">
+                <label for="estado">Estado:</label>
+                <select id="estado" name="estado" required>
+                    <option value="" selected disabled></option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" autocomplete="street-address" required>
+            </div>
+
+            <fieldset class="grupo">
+                <legend>Sexo:</legend>
+                <div class="opcoes">
+                    <label><input type="radio" name="sexo" value="masculino" required> Masculino</label>
+                    <label><input type="radio" name="sexo" value="feminino"> Feminino</label>
+                </div>
+            </fieldset>
+
+            <div class="campo">
+                <label for="login">Login:</label>
+                <input type="text" id="login" name="login" minlength="4" autocomplete="username" required>
+            </div>
+
+            <div class="campo">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" minlength="6" autocomplete="new-password" required>
+            </div>
+
+            <div class="botoes">
+                <button type="reset" class="botao-secundario">Limpar</button>
+                <button type="submit" class="botao-comprar">Salvar</button>
+            </div>
+
+            <p class="mensagem" id="mensagem" role="status"></p>
+
+            <p class="link-form">Já tem conta? <a href="login.html">Entrar</a></p>
+
+        </form>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 JFK Pacotes Turísticos - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const formCadastro = document.getElementById("formCadastro");
+        const mensagem = document.getElementById("mensagem");
+
+        formCadastro.addEventListener("reset", function () {
+            mensagem.textContent = "";
+        });
+
+        formCadastro.addEventListener("submit", function (e) {
+            e.preventDefault();
+            mensagem.textContent = "Cadastro realizado com sucesso! Redirecionando para o pagamento...";
+            setTimeout(function () {
+                window.location.href = "pagamento.html";
+            }, 2000);
+        });
+    </script>
+
+</body>
+
+</html>

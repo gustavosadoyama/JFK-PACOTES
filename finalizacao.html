@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra finalizada | JFK Pacotes Turísticos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="imagens/logo.svg" alt="JFK Viagens"></a>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html#pacotes">Pacotes</a></li>
+                <li><a href="index.html#sobre">Sobre Nós</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="form-container confirmacao">
+
+        <div class="icone-sucesso" aria-hidden="true">&#10003;</div>
+
+        <h1>Compra finalizada com sucesso!</h1>
+        <p class="texto-confirmacao">Obrigado por escolher a JFK Viagens. Enviaremos os detalhes da sua viagem
+            por e-mail.</p>
+
+        <div class="resumo" id="resumo">
+            <h2>Resumo do pedido</h2>
+            <p><span>Número do pedido:</span> <strong id="numeroPedido"></strong></p>
+            <p id="linhaPacote" hidden><span>Pacote:</span> <strong id="resumoPacote"></strong></p>
+            <p id="linhaValor" hidden><span>Valor por pessoa:</span> <strong id="resumoValor"></strong></p>
+            <p id="linhaForma" hidden><span>Pagamento:</span> <strong id="resumoForma"></strong></p>
+        </div>
+
+        <a href="index.html" class="botao-comprar" id="btnInicio">Voltar para a página inicial</a>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 JFK Pacotes Turísticos - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        let pacote = null;
+        let pagamento = null;
+        try {
+            pacote = JSON.parse(sessionStorage.getItem("pacoteSelecionado"));
+            pagamento = JSON.parse(sessionStorage.getItem("pagamento"));
+        } catch (e) { }
+
+        document.getElementById("numeroPedido").textContent =
+            "JFK-" + Math.floor(100000 + Math.random() * 900000);
+
+        if (pacote && pacote.nome) {
+            document.getElementById("resumoPacote").textContent = pacote.nome;
+            document.getElementById("resumoValor").textContent = pacote.valor;
+            document.getElementById("linhaPacote").hidden = false;
+            document.getElementById("linhaValor").hidden = false;
+        }
+
+        if (pagamento && pagamento.forma) {
+            const nomes = {
+                cartao: "Cartão de crédito",
+                pix: "Pix",
+                boleto: "Boleto bancário"
+            };
+            let texto = nomes[pagamento.forma] || pagamento.forma;
+            if (pagamento.forma === "cartao" && pagamento.parcelas) {
+                texto += " em " + pagamento.parcelas + "x";
+            }
+            document.getElementById("resumoForma").textContent = texto;
+            document.getElementById("linhaForma").hidden = false;
+        }
+
+        document.getElementById("btnInicio").addEventListener("click", function () {
+            try {
+                sessionStorage.removeItem("pacoteSelecionado");
+                sessionStorage.removeItem("pagamento");
+            } catch (e) { }
+        });
+    </script>
+
+</body>
+
+</html>
